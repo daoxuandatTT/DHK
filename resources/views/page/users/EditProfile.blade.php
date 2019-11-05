@@ -627,12 +627,12 @@
             <section class="module">
                 <div class="module-inner">
                     <div class="content-panel">
-                        <h2 class="title">Profile<span class="pro-label label label-warning">Update</span></h2>
+                        <h2 class="title">Thông tin cá nhân<span class="pro-label label label-warning"> </span></h2>
                         <form class="form-horizontal" method="post"
                               action="{{route('page.updateProfile',Auth::user()->id)}}" enctype="multipart/form-data">
                             @csrf
                             <fieldset class="fieldset">
-                                <h3 class="fieldset-title">Personal Info</h3>
+
                                 <div class="form-group avatar">
                                     <figure class="figure col-md-2 col-sm-3 col-xs-12">
                                         <img class="img-rounded img-responsive"
@@ -653,7 +653,7 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="col-md-2 col-sm-3 col-xs-12 control-label">User Name</label>
+                                    <label class="col-md-2 col-sm-3 col-xs-12 control-label">Họ tên</label>
                                     <div class="col-md-10 col-sm-9 col-xs-12">
                                         <input type="text" name="name" class="form-control"
                                                value="{{Auth::user()->name}}">
@@ -667,7 +667,7 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="col-md-2 col-sm-3 col-xs-12 control-label">Job</label>
+                                    <label class="col-md-2 col-sm-3 col-xs-12 control-label">Nghề nghiệp:</label>
                                     <div class="col-md-10 col-sm-9 col-xs-12">
                                         <input type="text" name="job" class="form-control"
                                                value="{{Auth::user()->job}}">
@@ -681,19 +681,19 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="col-md-2 col-sm-3 col-xs-12 control-label">Gender</label>
+                                    <label class="col-md-2 col-sm-3 col-xs-12 control-label">Giới tính</label>
                                     <div class="col-md-10 col-sm-9 col-xs-12">
-                                        Male: <input
-                                        @if($user->gender=='male')
+                                        Nam: <input
+                                        @if($user->gender=='Nam')
                                             {{'checked'}}
                                             @endif
-                                        type="radio" name="gender" value="male"
+                                        type="radio" name="gender" value="Nam"
                                         >
-                                        Female: <input
-                                            @if($user->gender=='female')
+                                        Nữ: <input
+                                            @if($user->gender=='Nữ')
                                             {{'checked'}}
                                             @endif
-                                            type="radio" name="gender" value="female"
+                                            type="radio" name="gender" value="Nữ"
                                         >
                                     </div>
                                 </div>
@@ -705,7 +705,7 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="col-md-2 col-sm-3 col-xs-12 control-label">Date of bird</label>
+                                    <label class="col-md-2 col-sm-3 col-xs-12 control-label">Ngày sinh</label>
                                     <div class="col-md-10 col-sm-9 col-xs-12">
                                         <input placeholder="yyyy-mm-dd" type="text" name="dob" class="form-control"
                                                value="{{Auth::user()->dob}}">
@@ -720,9 +720,9 @@
                                 </div>
                             </fieldset>
                             <fieldset class="fieldset">
-                                <h3 class="fieldset-title">Contact Info</h3>
+                                <h3 class="fieldset-title">Liên hệ</h3>
                                 <div class="form-group">
-                                    <label class="col-md-2  col-sm-3 col-xs-12 control-label">Address</label>
+                                    <label class="col-md-2  col-sm-3 col-xs-12 control-label">Địa chỉ</label>
                                     <div class="col-md-10 col-sm-9 col-xs-12">
                                         <input type="text" name="address" class="form-control"
                                                value="{{Auth::user()->address}}">
@@ -736,7 +736,7 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="col-md-2  col-sm-3 col-xs-12 control-label">Phone</label>
+                                    <label class="col-md-2  col-sm-3 col-xs-12 control-label">Điện thoại</label>
                                     <div class="col-md-10 col-sm-9 col-xs-12">
                                         <input type="text" name="phone" class="form-control"
                                                value="{{Auth::user()->phone}}">
@@ -753,7 +753,7 @@
                             <hr>
                             <div class="form-group">
                                 <div class="col-md-10 col-sm-9 col-xs-12 col-md-push-2 col-sm-push-3 col-xs-push-0">
-                                    <input class="btn btn-primary" type="submit" value="Update Profile">
+                                    <input class="btn btn-primary" type="submit" value="Cập nhật">
                                 </div>
                             </div>
                         </form>

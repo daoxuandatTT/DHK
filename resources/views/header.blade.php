@@ -13,7 +13,7 @@
                             @csrf
                             <div class="form-group">
                                 <span class="icon icon-search"></span>
-                                <input type="text" class="form-control" placeholder="Tìm kiếm" name="search">
+                                <input type="text" class="form-control" placeholder="Tìm kiếm" name="search" style=";width: 270px">
                             </div>
                         </form>
                     </div>

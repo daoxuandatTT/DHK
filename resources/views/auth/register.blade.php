@@ -21,6 +21,17 @@
             transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
         }
 
+        .nguyenkhanh{
+            width: 380px;
+            height: 36px;
+            background-color:#ff253a;
+            color: white;
+            font-weight: 400;
+            text-align: center;
+            white-space: nowrap;
+            margin-top: 10px;
+            border-radius: 6px;
+        }
         #logreg-forms form {
             width: 100%;
             max-width: 410px;
@@ -150,7 +161,7 @@
     </style>
 </head>
 <body>
-<div id="logreg-forms" style="margin: 5px auto;height: 600px" >
+<div id="logreg-forms" style="margin: 30px auto;height: 550px" >
     <form class="form-signin" method="post" action="{{route('register')}}">
         @csrf
         <h1 class="h3 mb-3 font-weight-normal" style="text-align: center">Đăng kí </h1>
@@ -160,9 +171,8 @@
             <a  class="social" href="{{url('/login/google')}}" style="float: right"> <button class="btn google-btn social-btn" type="button"><span><i class="fab fa-google-plus-g"></i> Sign in with Google+</span>            </button>
             </a>
         </div>
-        <p style="text-align:center"> OR </p>
-        <label>Tên người dùng:</label>
-        <input type="text" class="form-control  @error('name') is-invalid @enderror" name="name" placeholder="User name"
+        <p style="text-align:center"> Or </p>
+        <input type="text" class="form-control  @error('name') is-invalid @enderror" name="name" placeholder="Họ tên"
                value="{{ old('name') }}" required="">
         @error('name')
         <span class="invalid-feedback" role="alert">
@@ -170,7 +180,6 @@
                                     </span>
         @enderror
         <br>
-        <label>Email đăng kí: </label>
         <input type="email" class="form-control @error('email') is-invalid @enderror " value="{{ old('email') }}"
                name="email" placeholder="Email" required="">
         @error('email')
@@ -179,20 +188,20 @@
                                     </span>
         @enderror
         <br>
-        <label>Mật khẩu: </label>
-        <input type="password" name="password" class="form-control @error('password') is-invalid @enderror" placeholder="Password" required="">
+        <input type="password" name="password" class="form-control @error('password') is-invalid @enderror" placeholder="Nhập mật khẩu" required="">
         @error('password')
         <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
         @enderror
         <br>
-        <label>Nhập lại mật khẩu: </label>
-        <input type="password" name="password_confirmation" class="form-control" placeholder="Confirm Password"
-               required="">
-        <button class="btn btn-success btn-block" type="submit"><i class="fas fa-sign-in-alt"></i> Đăng kí</button>
-        <hr>
 
+        <input type="password" name="password_confirmation" class="form-control" placeholder="Nhập lại mật khẩu"
+               required=""><br>
+        <button class="btn btn-success btn-block" type="submit" style="padding: 5px;"><i class="fas fa-sign-in-alt"></i> Đăng kí</button>
+
+        <a href="{{route('page.index')}}"><button class="nguyenkhanh"  type="button" style="padding: 5px;"> Quay lại</button></a>
+        <hr>
     </form>
 </div>
 <p style="text-align:center">

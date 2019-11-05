@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "1131f16587ce48ea57197009d4f53579",
+    "content-hash": "6b714ff1dd8762565dbad21c78b14cab",
     "packages": [
         {
             "name": "cohensive/embed",

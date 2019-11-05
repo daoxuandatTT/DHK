@@ -9258,10 +9258,12 @@ textarea.form-control {
   .search-form .form-group {
     position: relative; }
     .search-form .form-group input {
-      height: 60px !important;
+      height: 30px !important;
       padding-right: 50px;
       font-size: 14px;
+        margin-top: 15px;
       border: 1px solid rgba(0, 0, 0, 0.09); }
+
   .search-form .icon {
     position: absolute;
     top: 50%;

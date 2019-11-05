@@ -519,7 +519,7 @@
                         <nav class="side-menu">
                             <ul class="nav">
                                 <li class="active"><a href="{{route('page.myPost')}}"><span class="fa fa-table" style="width: 2px"></span>Bài đã đăng</a></li>
-                                <li class="active"><a href="{{route('page.editProfile',Auth::user()->id)}}" ><span class="fa fa-refresh" style="width: 2px"></span>Sửa thông t</a></li>
+                                <li class="active"><a href="{{route('page.editProfile',Auth::user()->id)}}" ><span class="fa fa-refresh" style="width: 2px"></span>Sửa thông tin</a></li>
                             </ul>
                         </nav>
                     </div>

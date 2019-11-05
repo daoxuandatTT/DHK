@@ -660,7 +660,7 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="col-md-2 col-sm-3 col-xs-12 control-label"> Mật khẩu mới</label>
+                                    <label class="col-md-2 col-sm-3 col-xs-12 control-label"> Mật khẩu mới :</label>
                                     <div class="col-md-10 col-sm-9 col-xs-12">
                                         <input type="password" name="newpassword1" class="form-control">
                                         @if($errors->has('newpassword1'))
@@ -676,7 +676,7 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="col-md-2 col-sm-3 col-xs-12 control-label">Nhập lại mật khẩu</label>
+                                    <label class="col-md-2 col-sm-3 col-xs-12 control-label">Nhập lại mật khẩu :</label>
                                     <div class="col-md-10 col-sm-9 col-xs-12">
                                         <input type="password" name="newpassword2" class="form-control">
                                         @if($errors->has('newpassword2'))

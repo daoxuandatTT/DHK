@@ -6,12 +6,12 @@
 
     <div id="fb-root"></div>
     <script async defer crossorigin="anonymous" src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v5.0&appId=2474525532872947&autoLogAppEvents=1"></script>
-
     <section class="ftco-section">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 order-lg-last ftco-animate">
                     <h1 class="mb-3 text-center" style="color: blueviolet">{{ $post->title }}</h1>
+                    <div class="fb-like" data-href="https://blogmonngon.tk/{{$post->id}}" data-width="" data-layout="button_count" data-action="like" data-size="large" data-show-faces="true" data-share="true"></div>
                      <p>Tác giả: {{ $post->user->name }}  Created {{ $post->created_at->diffForHumans() }} ({{ $post->created_at}})
                     </p>
                     <h3 class="mb-3 mt-5"></h3>
@@ -24,7 +24,7 @@
                         </div>
                     </div>
 
-                    <h3 class="mb-3 mt-5">Chuan bi nguyen lieu:</h3>
+                    <h3 class="mb-3 mt-5">Chuẩn bị nguyên liệu:</h3>
                     <p>{!! $post->material !!}</p>
                     <h2 class="mb-3 mt-5">Cách làm :</h2>
                     <p>

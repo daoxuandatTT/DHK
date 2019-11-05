@@ -74,7 +74,7 @@ class PostController extends Controller
     {
         $keyword = $request->search;
         if (!$keyword) {
-            return redirect()->route('post.search');
+            return view('page.index');
         }
         $posts = Post::where('title', 'LIKE', '%' . $keyword . '%')->get();
         return view('page.users.search', compact('posts'));

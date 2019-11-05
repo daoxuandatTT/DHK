@@ -48,7 +48,7 @@
                         </div>
                         <div class="form-group" >
                             <label for="exampleInputEmail3">Category</label>
-                            <select name="category_id" id="" class="show-tick selectpicker" multiple>
+                            <select name="category_id" id="" class="show-tick selectpicker">
                                 @foreach($categories as $category)
                                     <option value="{{ $category->id }}">{{$category->name}}</option>
                                 @endforeach
@@ -73,19 +73,17 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="exampleSelectGender"> Mode: </label>
-                            <label for="exampleSelectGender"> public </label>
+                            <label for="exampleSelectGender">Cong khai</label>
                             <input type="radio" value="public" name="mode"/>
-                            <div class="form-group">
-                                <label>Upload image</label>
-                            <label for="exampleSelectGender">private</label>
+                            <label for="exampleSelectGender">Chi minh toi</label>
                             <input type="radio" value="private" name="mode"/>
-                                <div class="error-message">
-                                    @if($errors->has('mode'))
-                                        <p class="alert-danger">{{$errors->first('mode')}}</p>
-                                    @endif
-                                </div>
+                            <div class="error-message">
+                                @if($errors->has('mode'))
+                                    <p class="alert-danger">{{$errors->first('mode')}}</p>
+                                @endif
+                            </div>
                         </div>
+                        <div class="form-group">
                             <input type="file"
                                    onchange="document.getElementById('image').src = window.URL.createObjectURL(this.files[0])"
                                    class="form-control-file"

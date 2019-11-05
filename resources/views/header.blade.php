@@ -1,15 +1,24 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark ftco-navbar-light" id="ftco-navbar">
     <div class="container">
-        <a class="navbar-brand" href="{{route('page.index')}}">MoonLightTeam<span>.</span></a>
+        <a class="navbar-brand" href="{{route('page.index')}}">MoonLight</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav"
                 aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="oi oi-menu"></span> Menu
         </button>
-
         <div class="collapse navbar-collapse" id="ftco-nav">
             <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <div class="container">
+                        <form action="{{route('post.search')}}" class="search-form" method="post">
+                            @csrf
+                            <div class="form-group">
+                                <span class="icon icon-search"></span>
+                                <input type="text" class="form-control" placeholder="Tìm kiếm" name="search" style=";width: 270px">
+                            </div>
+                        </form>
+                    </div>
+                </li>
                 <li class="nav-item active"><a href="{{route('page.index')}}" class="nav-link">Trang chủ</a></li>
-                <li class="nav-item"><a href="{{route('page.about')}}" class="nav-link">Về chúng tôi</a></li>
                 <li class="nav-item"><a href="{{route('page.showPostShare')}}" class="nav-link">Mẹo Làm Bếp</a></li>
                 <li class="nav-item"><a href="{{route('page.contact')}}" class="nav-link">Liên Hệ</a></li>
                 <!-- Authentication Links -->

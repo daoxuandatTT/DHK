@@ -29,7 +29,9 @@ class PageController extends Controller
 
     public function index()
     {
-        return view('page.index');
+        $tags = Tag::all()->random(3);
+        $randomposts = Post::all()->random(2);
+        return view('page.index',compact('randomposts','tags'));
     }
 
     public function about()
@@ -49,7 +51,7 @@ class PageController extends Controller
 
     public function myPost()
     {
-        $posts = User::find(Auth::user()->id)->posts->paginate(4);
+        $posts = User::find(Auth::user()->id)->posts->paginate(6);
         $categories = Category::all();
         $user = User::find(Auth::user()->id);
         return view('page.users.myPost', compact('posts', 'categories','user'));

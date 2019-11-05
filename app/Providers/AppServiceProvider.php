@@ -112,6 +112,7 @@ class AppServiceProvider extends ServiceProvider
             $tags=Tag::all();
             $view->with('tags',$tags);
         });
+
         if (!Collection::hasMacro('paginate')) {
 
             Collection::macro('paginate',

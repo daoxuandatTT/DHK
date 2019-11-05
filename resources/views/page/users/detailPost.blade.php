@@ -6,115 +6,107 @@
 
     <div id="fb-root"></div>
     <script async defer crossorigin="anonymous" src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v5.0&appId=2474525532872947&autoLogAppEvents=1"></script>
-    <section class="hero-wrap hero-wrap-2" style="background-image: url('{{asset('data/images/bg_4.jpg')}}');">
-        <div class="overlay"></div>
-        <div class="container">
-            <div class="row no-gutters slider-text align-items-end justify-content-center">
-                <div class="col-md-9 ftco-animate pb-5 text-center">
-                    <p class="breadcrumbs"><span class="mr-2"><a href="{{route('page.index')}}">Home <i
-                                    class="ion-ios-arrow-forward"></i></a></span> <span>Detail post<i
-                                class="ion-ios-arrow-forward"></i></span></p>
-                </div>
-            </div>
-        </div>
-    </section>
 
     <section class="ftco-section">
         <div class="container">
             <div class="row">
-                <div class="col-lg-9 order-lg-last ftco-animate">
-                    <h3 class="mb-3 text-center" style="color: blueviolet">{{ $post->title }}</h3>
-                    <h2 class="mb-3 mt-5">#1. Description</h2>
-                    <p>{!! $post->description !!}</p>
-                    {{--                    <p>{{$post->recipe}}</p>--}}
-                    <p>
-                        <img src="{{asset('storage/upload/images/' . $post->image)}}" alt="" class="img-fluid">
+                <div class="col-lg-12 order-lg-last ftco-animate">
+                    <h1 class="mb-3 text-center" style="color: blueviolet">{{ $post->title }}</h1>
+                     <p>Tác giả: {{ $post->user->name }}  Created {{ $post->created_at->diffForHumans() }} ({{ $post->created_at}})
                     </p>
-                    <h2 class="mb-3 mt-5">#2. Material</h2>
+                    <h3 class="mb-3 mt-5"></h3>
+                    <div class="row">
+                        <div class="col-md-6">
+                            {!! $post->description !!}
+                        </div>
+                        <div class="col-md-6">
+                            <img src="{{asset('storage/upload/images/' . $post->image)}}" alt="" style="width: 650px;height: 433px" class="img-fluid">
+                        </div>
+                    </div>
+
+                    <h3 class="mb-3 mt-5">Chuan bi nguyen lieu:</h3>
                     <p>{!! $post->material !!}</p>
-                    <h2 class="mb-3 mt-5">#3. Recipe</h2>
+                    <h2 class="mb-3 mt-5">Cách làm :</h2>
                     <p>
                         {!! $post->recipe !!}
 
                     </p>
-                    @if(isset($post->video))
-                        <video id="video" width="560" height="365" controls autoplay>
-                            <source src="{{asset('storage/upload/videos/' . $post->video)}}" type="video/mp4">
-                            Your browser does not support the video tag.
-                        </video>
-                    @else
-                        <div class="media-body">
-                            {!! Embed::make($post->link)->parseUrl()->getIframe() !!}
-                        </div>
-                    @endif
-
+                    <div class="col-md-12 text-center" style="text-align: justify">
+                        @if(isset($post->video))
+                            <video id="video" width="560" height="365" controls autoplay>
+                                <source src="{{asset('storage/upload/videos/' . $post->video)}}" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        @else
+                            <div class="media-body">
+                                {!! Embed::make($post->link)->parseUrl()->getIframe() !!}
+                            </div>
+                        @endif
+                    </div>
                     <div class="tag-widget post-tag-container mb-5 mt-5">
+                        <h6>Từ Khóa:</h6>
                         <div class="tagcloud">
                             @foreach($post->tags as $tag)
                                 <a href="{{ route('tag.posts',$tag->id) }}" class="tag-cloud-link">{{$tag->name}}</a>
                             @endforeach
                         </div>
                     </div>
-                    <p>Create {{ $post->created_at->diffForHumans() }}</p>
-                    <div class="fb-comments" data-href="http://blogmonngon.tk/{{$post->id}}" data-width="" data-numposts="5"></div>
-                </div> <!-- .col-md-8 -->
-                <div class="col-lg-3 sidebar pr-lg-5 ftco-animate">
-                    <div class="about-author d-flex p-4 bg-light">
-                        <div class="bio mr-5">
-                            <img src="{{$post->user->image}}" alt="Image placeholder" class="img-fluid mb-4">
-                        </div>
-                        <div class="desc">
-                            <h6>{{ $post->user->name }}</h6>
-                            <p>{{$post->user->description}}</p>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="fb-comments" data-href="http://blogmonngon.tk/{{$post->id}}" data-width="" data-numposts="5"></div>
                         </div>
                     </div>
-                    <div class="sidebar-box">
-                        <form action="#" class="search-form">
-                            <div class="form-group">
-                                <span class="icon icon-search"></span>
-                                <input type="text" class="form-control" placeholder="Type a keyword and hit enter">
-                            </div>
-                        </form>
-                    </div>
-                    <div class="sidebar-box ftco-animate">
-                        <ul class="categories">
-                            <h3 class="heading mb-4">Categories</h3>
-                            @foreach($categories as $category)
-                                <li><a href="#">{{$category->name}} <span>{{ $category->posts->count()}}</span></a></li>
-                            @endforeach
-                        </ul>
-                    </div>
-                    <div class="sidebar-box ftco-animate">
-                        <h3 class="heading mb-4">Recent Blog</h3>
-                        @foreach($randomposts as $randompost)
-                        <div class="block-21 mb-4 d-flex">
-                            <a class="blog-img mr-4" style="background-image: url({{asset('Storage/upload/images/'.$randompost->image)}});"></a>
-                            <div class="text">
-                                <h3><a href="#">{{$randompost->title}}</a>
-                                </h3>
-                                <div class="meta">
-                                    <div><a href="#"><span class="icon-calendar"></span> {{$randompost->created_at->diffForHumans()}}</a></div>
-                                    <div><a href="#"><span class="icon-person"></span>  @if(Auth::guard('admin')->check())
-                                            Admin
-                                            @else(Auth::guard('web')->check())
-                                                User</a>
-                                    @endif</div>
-                                    <div><a href="#"><span class="icon-chat"></span> 19</a></div>
+                    <div class="row" style="margin-top: 50px">
+                        <h2>Món liên quan </h2>
+                        <div class="col-md-12">
+                            <div class="row">
+                                @foreach($postTags as $postTag)
+                                    <div class="col-md-3 ftco-animate">
+                                        <div class="blog-entry">
+                                            <a href="{{ route('page.showDetail',$postTag->id) }}" class="img-2"><img src="{{asset('storage/upload/images/'. $postTag->image) }}"
+                                                                                          class="img-fluid" style="width: 450px;height: 213px" alt="Colorlib Template"></a>
+                                            <div class="text pt-3">
+                                                <p class="meta d-flex"><span class="pr-3">Dessert</span><span
+                                                        class="ml-auto pl-3">{{$postTag->created_at}}</span>
+                                                </p>
+                                                <p class="mb-0"><a href="{{ route('page.showDetail',$postTag->id) }}" class="btn btn-black py-2">Đọc thêm
+                                                        <span class="icon-arrow_forward ml-4"></span></a></p>
+                                            </div>
+                                        </div>
                                     </div>
+                                @endforeach
                             </div>
                         </div>
-                        @endforeach
-                    <div class="sidebar-box ftco-animate">
-                        <h3 class="heading mb-4">Paragraph</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus itaque, autem
-                            necessitatibus voluptate quod mollitia delectus aut, sunt placeat nam vero culpa sapiente
-                            consectetur similique, inventore eos fugit cupiditate numquam!</p>
+<div class="clear-fix"></div>
+                        <div class="col-md-12">
+                            <h2>Món gần đây</h2>
+                            <div class="row">
+                                @foreach($postRecents as $postRecent)
+                                    <div class="col-md-3 ftco-animate">
+                                        <div class="blog-entry">
+                                            <a href="{{ route('page.showDetail',$postRecent->id) }}" class="img-2"><img src="{{asset('storage/upload/images/'. $postRecent->image) }}"
+                                                                                          class="img-fluid" style="width: 520px;height: 245px" alt="Colorlib Template"></a>
+                                            <div class="text pt-3">
+                                                <p class="meta d-flex"><span class="pr-3">Dessert</span><span
+                                                        class="ml-auto pl-3">{{$postRecent->created_at}}</span>
+                                                </p>
+                                                <p class="mb-0"><a href="{{ route('page.showDetail',$postRecent->id) }}" class="btn btn-black py-2">Đọc thêm
+                                                        <span class="icon-arrow_forward ml-4"></span></a></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                @endforeach
+                            </div>
+                            {{ $postRecents->links() }}
+
+                        </div>
                     </div>
-                </div>
-            </div>
+                </div> <!-- .col-md-8 -->
         </div>
         </div>
     </section>
+    <div class="clearfix"></div>
+    <div class="clearfix" ></div>
     <section class="ftco-subscribe ftco-section bg-light">
         <div class="overlay">
             <div class="container">

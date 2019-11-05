@@ -85,37 +85,25 @@
                             <input type="radio" value="private" name="mode"/>
                             <div class="form-group">
                                 <label>Tải lên hình ảnh</label>
+                                    <input type="file"
+                                           onchange="document.getElementById('image').src = window.URL.createObjectURL(this.files[0])"
+                                           class="form-control-file"
+                                           name="image"
+                                    ><br>
+                                    <img id="image" src=""
+                                         style="height: 70px"/>
+                                    <div class="error-message">
+                                        @if($errors->has('image'))
+                                            <p class="alert-danger">{{$errors->first('image')}}</p>
+                                        @endif
+                                    </div>
+                                </div>
                                 <div class="error-message">
                                     @if($errors->has('mode'))
                                         <p class="alert-danger">{{$errors->first('mode')}}</p>
                                     @endif
                                 </div>
                             </div>
-                            <input type="file"
-                                   onchange="document.getElementById('image').src = window.URL.createObjectURL(this.files[0])"
-                                   class="form-control-file"
-                                   name="image"
-                            ><br>
-                            <img id="image" src=""
-                                 style="height: 70px"/>
-                            <div class="error-message">
-                                @if($errors->has('image'))
-                                    <p class="alert-danger">{{$errors->first('image')}}</p>
-                                @endif
-                            </div>
-                        </div>
-                        {{--                        <div class="form-group">--}}
-                        {{--                            <label>Upload video</label>--}}
-                        {{--                            <input type="file"--}}
-                        {{--                                   onchange="document.getElementById('video').src = window.URL.createObjectURL(this.files[0])"--}}
-                        {{--                                   class="form-control-file"--}}
-                        {{--                                   name="video"--}}
-                        {{--                            ><br>--}}
-                        {{--                            <video id="video" width="320" height="240" controls>--}}
-                        {{--                                <source src="" type="video/mp4">--}}
-                        {{--                                Your browser does not support the video tag.--}}
-                        {{--                            </video>--}}
-                        {{--                        </div>--}}
                         <div class="form-group">
                             Đường dẫn video <input class="form-control-file" type="text" name="link">
                             <div class="error-message">
@@ -590,6 +578,5 @@
             });
         });
     </script>
-
 @endpush
 

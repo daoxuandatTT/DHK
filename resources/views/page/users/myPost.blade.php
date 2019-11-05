@@ -27,7 +27,7 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header text-center">
-                    <h4 class="modal-title w-100 font-weight-bold">Create New Post</h4>
+                    <h4 class="modal-title w-100 font-weight-bold"> Thêm mới một bài viết</h4>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times</span>
                     </button>
@@ -37,23 +37,35 @@
                           action="{{ route('post.store',Auth::user()->id) }}" enctype="multipart/form-data">
                         @csrf
                         <div class="form-group">
-                            <label for="exampleInputName1">Title</label>
+                            <label for="exampleInputName1">Tiêu đề:</label>
                             <input type="text" name="title" class="form-control" id="exampleInputName1"
-                                   placeholder="enter title...">
+                                   placeholder="Tên bài viết...">
                             <div class="error-message">
                                 @if($errors->has('title'))
                                     <p class="alert-danger">{{$errors->first('title')}}</p>
                                 @endif
                             </div>
                         </div>
+                        <div class="form-group">
+                            <label for="exampleSelectGender">Chế độ:</label><br>
+                            <label for="exampleSelectGender">Công khai</label>
+                            <input type="radio" value="public" name="mode"/>
+                            <label for="exampleSelectGender">Chỉ mình tôi</label>
+                            <input type="radio" value="private" name="mode"/>
+                            <div class="error-message">
+                                @if($errors->has('mode'))
+                                    <p class="alert-danger">{{$errors->first('mode')}}</p>
+                                @endif
+                            </div>
+                        </div>
                         <div class="form-group" >
-                            <label for="exampleInputEmail3">Category</label>
-                            <select name="category_id" id="" class="show-tick selectpicker" multiple>
+                            <label for="exampleInputEmail3">Chọn thể loại:</label>
+                            <select name="category_id" id="" class="show-tick selectpicker">
                                 @foreach($categories as $category)
                                     <option value="{{ $category->id }}">{{$category->name}}</option>
                                 @endforeach
                             </select>
-                            <label for="exampleInputEmail3">Select Tag</label>
+                            <label for="exampleInputEmail3">Chọn thẻ tag:</label>
                             <select style="float: right" name="tags[]" id="tag" class="show-tick selectpicker" data-live-search="false" multiple>
                                 @foreach($tags as $tag)
                                     <option value="{{ $tag->id }}">{{$tag->name}}</option>
@@ -61,10 +73,7 @@
                             </select>
                         </div>
                         <div class="form-group">
-
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleInputPassword4">Descriptions</label>
+                            <label for="exampleInputPassword4">Mô tả</label>
                             <textarea class="ckeditor" id="description" cols="98" rows="5" name="description"></textarea>
                             <div class="error-message">
                                 @if($errors->has('description'))
@@ -72,20 +81,9 @@
                                 @endif
                             </div>
                         </div>
+
                         <div class="form-group">
-                            <label for="exampleSelectGender"> Mode: </label>
-                            <label for="exampleSelectGender"> public </label>
-                            <input type="radio" value="public" name="mode"/>
-                            <div class="form-group">
-                                <label>Upload image</label>
-                            <label for="exampleSelectGender">private</label>
-                            <input type="radio" value="private" name="mode"/>
-                                <div class="error-message">
-                                    @if($errors->has('mode'))
-                                        <p class="alert-danger">{{$errors->first('mode')}}</p>
-                                    @endif
-                                </div>
-                        </div>
+                            <label for="exampleInputPassword4">Thêm ảnh món ăn:</label>
                             <input type="file"
                                    onchange="document.getElementById('image').src = window.URL.createObjectURL(this.files[0])"
                                    class="form-control-file"
@@ -120,7 +118,7 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="exampleInputPassword4">Material</label>
+                            <label for="exampleInputPassword4">Nguyên liệu:</label>
                             <textarea class="ckeditor" id="material" cols="98" rows="5" name="material"></textarea>
                             <div class="error-message">
                                 @if($errors->has('material'))
@@ -129,7 +127,7 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="exampleInputPassword4">Recipe</label>
+                            <label for="exampleInputPassword4">Cách chế biến</label>
                             <textarea class="ckeditor" id="recipe" cols="98" rows="5" name="recipe"></textarea>
                             <div class="error-message">
                                 @if($errors->has('recipe'))

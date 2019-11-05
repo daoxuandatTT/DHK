@@ -693,7 +693,7 @@
                                             @if($user->gender=='female')
                                             {{'checked'}}
                                             @endif
-                                            type="radio" name="gender" value="male"
+                                            type="radio" name="gender" value="female"
                                         >
                                     </div>
                                 </div>

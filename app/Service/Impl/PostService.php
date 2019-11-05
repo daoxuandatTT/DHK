@@ -34,7 +34,6 @@ class PostService implements PostServiceInterface
         $post->material = $request->material;
         $post->recipe = $request->recipe;
         $post->description = $request->description;
-        $post->region = $request->region;
         $post->mode = $request->mode;
         $post->link = $request->link;
         $post->image = $imageFile->getClientOriginalName();

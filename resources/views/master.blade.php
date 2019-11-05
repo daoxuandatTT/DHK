@@ -4,8 +4,9 @@
     <title>The MoonLight Team</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta property="fb:app_id" content="2474525532872947" />
-
+    <meta property="fb:app_id" content="2474525532872947"/>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+          integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,900" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700,700i,900,900i" rel="stylesheet">
 
@@ -23,7 +24,7 @@
     <link rel="stylesheet" href="{{asset('data/css/flaticon.css')}}">
     <link rel="stylesheet" href="{{asset('data/css/icomoon.css')}}">
     <link rel="stylesheet" href="{{asset('data/css/style.css')}}">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" >
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>
         .fa {
             padding: 20px;
@@ -34,9 +35,11 @@
             text-decoration: none;
             margin: 5px 2px;
         }
+
         .fa:hover {
             opacity: 0.7;
         }
+
         .fa-facebook {
             background: #3B5998;
             color: white;
@@ -51,6 +54,8 @@
             background: #dd4b39;
             color: white;
         }
+
+
     </style>
     @stack('css')
 </head>

@@ -33,6 +33,7 @@ class StoreMyPost extends FormRequest
             'recipe' => 'required',
         ];
     }
+
     public function messages()
     {
         $message = [

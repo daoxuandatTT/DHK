@@ -49,7 +49,7 @@ class PageController extends Controller
 
     public function myPost()
     {
-        $posts = User::find(Auth::user()->id)->posts->paginate(1);
+        $posts = User::find(Auth::user()->id)->posts->paginate(3);
         $categories = Category::all();
         $user = User::find(Auth::user()->id);
         return view('page.users.myPost', compact('posts', 'categories','user'));

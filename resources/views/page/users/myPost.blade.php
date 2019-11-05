@@ -1,6 +1,7 @@
 @extends('master')
 @push('css')
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.9/dist/css/bootstrap-select.min.css">
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.9/dist/css/bootstrap-select.min.css">
     <link rel="stylesheet" href="{{asset('ViewAdmin/assets/vendors/mdi/css/materialdesignicons.min.css')}}">
     {{--    <link rel="stylesheet" href="{{asset('ViewAdmin/assets/vendors/mdi/css/vendor.bundle.base.css')}}">--}}
     <style type="text/css">
@@ -9,12 +10,14 @@
             background: #fff;
             display: none;
         }
+
         #formButton {
             display: block;
             margin-right: auto;
             margin-left: auto;
         }
-        .modal-body{
+
+        .modal-body {
             max-height: calc(100vh - 200px);
             overflow-y: auto;
         }
@@ -27,7 +30,7 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header text-center">
-                    <h4 class="modal-title w-100 font-weight-bold">Create New Post</h4>
+                    <h4 class="modal-title w-100 font-weight-bold">Thêm mới một bài viết</h4>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times</span>
                     </button>
@@ -37,24 +40,25 @@
                           action="{{ route('post.store',Auth::user()->id) }}" enctype="multipart/form-data">
                         @csrf
                         <div class="form-group">
-                            <label for="exampleInputName1">Title</label>
+                            <label for="exampleInputName1">Tiêu đề</label>
                             <input type="text" name="title" class="form-control" id="exampleInputName1"
-                                   placeholder="enter title...">
+                                   placeholder="">
                             <div class="error-message">
                                 @if($errors->has('title'))
                                     <p class="alert-danger">{{$errors->first('title')}}</p>
                                 @endif
                             </div>
                         </div>
-                        <div class="form-group" >
-                            <label for="exampleInputEmail3">Category</label>
-                            <select name="category_id" id="" class="show-tick selectpicker" multiple>
+                        <div class="form-group">
+                            <label for="exampleInputEmail3">Thể loại</label>
+                            <select name="category_id" id="">
                                 @foreach($categories as $category)
                                     <option value="{{ $category->id }}">{{$category->name}}</option>
                                 @endforeach
                             </select>
-                            <label for="exampleInputEmail3">Select Tag</label>
-                            <select style="float: right" name="tags[]" id="tag" class="show-tick selectpicker" data-live-search="false" multiple>
+                            <label for="exampleInputEmail3">Thẻ</label>
+                            <select style="float: right" name="tags[]" id="tag" class="show-tick selectpicker"
+                                    data-live-search="false" multiple>
                                 @foreach($tags as $tag)
                                     <option value="{{ $tag->id }}">{{$tag->name}}</option>
                                 @endforeach
@@ -64,8 +68,9 @@
 
                         </div>
                         <div class="form-group">
-                            <label for="exampleInputPassword4">Descriptions</label>
-                            <textarea class="ckeditor" id="description" cols="98" rows="5" name="description"></textarea>
+                            <label for="exampleInputPassword4">Miêu tả</label>
+                            <textarea class="ckeditor" id="description" cols="98" rows="5"
+                                      name="description"></textarea>
                             <div class="error-message">
                                 @if($errors->has('description'))
                                     <p class="alert-danger">{{$errors->first('description')}}</p>
@@ -73,19 +78,19 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="exampleSelectGender"> Mode: </label>
-                            <label for="exampleSelectGender"> public </label>
+                            <label for="exampleSelectGender"> Chế độ: </label>
+                            <label for="exampleSelectGender"> Công khai </label>
                             <input type="radio" value="public" name="mode"/>
-                            <div class="form-group">
-                                <label>Upload image</label>
-                            <label for="exampleSelectGender">private</label>
+                            <label for="exampleSelectGender"> Chỉ mình tôi </label>
                             <input type="radio" value="private" name="mode"/>
+                            <div class="form-group">
+                                <label>Tải lên hình ảnh</label>
                                 <div class="error-message">
                                     @if($errors->has('mode'))
                                         <p class="alert-danger">{{$errors->first('mode')}}</p>
                                     @endif
                                 </div>
-                        </div>
+                            </div>
                             <input type="file"
                                    onchange="document.getElementById('image').src = window.URL.createObjectURL(this.files[0])"
                                    class="form-control-file"
@@ -99,20 +104,20 @@
                                 @endif
                             </div>
                         </div>
-{{--                        <div class="form-group">--}}
-{{--                            <label>Upload video</label>--}}
-{{--                            <input type="file"--}}
-{{--                                   onchange="document.getElementById('video').src = window.URL.createObjectURL(this.files[0])"--}}
-{{--                                   class="form-control-file"--}}
-{{--                                   name="video"--}}
-{{--                            ><br>--}}
-{{--                            <video id="video" width="320" height="240" controls>--}}
-{{--                                <source src="" type="video/mp4">--}}
-{{--                                Your browser does not support the video tag.--}}
-{{--                            </video>--}}
-{{--                        </div>--}}
+                        {{--                        <div class="form-group">--}}
+                        {{--                            <label>Upload video</label>--}}
+                        {{--                            <input type="file"--}}
+                        {{--                                   onchange="document.getElementById('video').src = window.URL.createObjectURL(this.files[0])"--}}
+                        {{--                                   class="form-control-file"--}}
+                        {{--                                   name="video"--}}
+                        {{--                            ><br>--}}
+                        {{--                            <video id="video" width="320" height="240" controls>--}}
+                        {{--                                <source src="" type="video/mp4">--}}
+                        {{--                                Your browser does not support the video tag.--}}
+                        {{--                            </video>--}}
+                        {{--                        </div>--}}
                         <div class="form-group">
-                            Video :<input  class="form-control-file" type="text" name="link">
+                            Đường dẫn video <input class="form-control-file" type="text" name="link">
                             <div class="error-message">
                                 @if($errors->has('link'))
                                     <p class="alert-danger">{{$errors->first('link')}}</p>
@@ -120,7 +125,7 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="exampleInputPassword4">Material</label>
+                            <label for="exampleInputPassword4">Nguyên liệu</label>
                             <textarea class="ckeditor" id="material" cols="98" rows="5" name="material"></textarea>
                             <div class="error-message">
                                 @if($errors->has('material'))
@@ -129,7 +134,7 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="exampleInputPassword4">Recipe</label>
+                            <label for="exampleInputPassword4">Công thức</label>
                             <textarea class="ckeditor" id="recipe" cols="98" rows="5" name="recipe"></textarea>
                             <div class="error-message">
                                 @if($errors->has('recipe'))
@@ -137,9 +142,9 @@
                                 @endif
                             </div>
                         </div>
-                        <button type="submit" class="btn btn-primary mr-2">Submit</button>
+                        <button type="submit" class="btn btn-primary mr-2">Đăng bài</button>
                         <a href="{{route('page.myPost')}}">
-                            <button type="" class="btn btn-light">Cancel</button>
+                            <button type="button" class="btn btn-secondary">Quay lại</button>
                         </a>
                     </form>
                 </div>
@@ -155,9 +160,11 @@
             <div class="sidebar-wrap">
                 <div class="sidebar-box p-4 about text-center ftco-animate">
                     <h2 class="heading mb-4">About Me</h2>
-                    <img src="{{asset('storage/upload/images/'.Auth::
-                    user()->image)}}">
-
+                    @if($user->image)
+                        <img src="{{asset('storage/upload/images/' . Auth::user()->image)}}">
+                    @else
+                        <img src="{{asset('storage/upload/images/default.jpg')}}" alt="">
+                    @endif
                     <div class="text pt-4">
                         <p>Hi! My name is <strong>Cathy Deon</strong>, behind the word mountains, far from the countries
                             Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove
@@ -170,16 +177,8 @@
                        data-target="#modalRegisterForm">
                         <button id="formButton" type="button" class="btn btn-primary btn-lg" data-toggle="modal"
                                 data-target="#ModalLoginForm">
-                            <i class="icon icon-add">New Post</i></button>
+                            <i class="icon icon-add">Tạo bài viết</i></button>
                     </a>
-                </div>
-                <div class="sidebar-box p-4 ftco-animate">
-                    <form action="#" class="search-form">
-                        <div class="form-group">
-                            <span class="icon icon-search"></span>
-                            <input type="text" class="form-control" placeholder="Search">
-                        </div>
-                    </form>
                 </div>
                 <div class="sidebar-box categories text-center ftco-animate">
                     <h2 class="heading mb-4">Categories</h2>
@@ -193,7 +192,7 @@
                         </li>
                         <li>
                             <a href="#" class="img d-flex align-items-center justify-content-center text-center">
-                                    <div class="text">
+                                <div class="text">
                                     <h3>Lifestyle</h3>
                                 </div>
                             </a>
@@ -248,7 +247,7 @@
                                 </div>
                             @endforeach
                         </div>
-                        <div class="text-center justify-content-center  " >
+                        <div class="text-center justify-content-center  ">
                             {{ $posts->links() }}
                         </div>
                         <div class="col-12 grid-margin stretch-card">
@@ -260,8 +259,11 @@
                         <div class="sidebar-wrap">
                             <div class="sidebar-box p-4 about text-center ftco-animate">
                                 <h2 class="heading mb-4">About Me</h2>
-                                <img src="{{ Auth::user()->image }}">
-
+                                @if($user->image)
+                                    <img src="{{asset('storage/upload/images/' . Auth::user()->image)}}">
+                                @else
+                                    <img src="{{asset('storage/upload/images/default.jpg')}}" alt="">
+                                @endif
                                 <div class="text pt-4">
                                     <p>Hi! My name is <strong>Cathy Deon</strong>, behind the word mountains, far from
                                         the countries Vokalia and Consonantia, there live the blind texts. Separated
@@ -276,22 +278,12 @@
                                    data-target="#modalRegisterForm">
                                     <button id="formButton" type="button" class="buttonModal btn btn-primary btn-lg"
                                             data-toggle="modal" data-target="#ModalLoginForm">
-                                        <i class="icon icon-add">New Post</i></button>
+                                        <i class="icon icon-add">Tạo bài viết</i></button>
                                 </a>
 
                             </div>
 
                             {{--                        form--}}
-
-                            <div class="sidebar-box p-4 ftco-animate">
-                                <form action="{{route('post.search')}}" method="post" class="search-form">
-                                    @csrf
-                                    <div class="form-group">
-                                        <span class="icon icon-search"></span>
-                                        <input type="text" class="form-control" placeholder="Search" name="search">
-                                    </div>
-                                </form>
-                            </div>
                             <div class="sidebar-box categories text-center ftco-animate">
                                 <h2 class="heading mb-4">Categories</h2>
                                 <ul class="category-image">
@@ -436,11 +428,11 @@
                                         <p class="alert-danger">{{$errors->first('title')}}</p>
                                     @endif
                                 </div>
-                              <div class="error-message">
-                                  @if($errors->has('title'))
-                                      <p class="alert-danger">{{$errors->first('title')}}</p>
-                                  @endif
-                              </div>
+                                <div class="error-message">
+                                    @if($errors->has('title'))
+                                        <p class="alert-danger">{{$errors->first('title')}}</p>
+                                    @endif
+                                </div>
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputEmail3">Category</label>
@@ -516,7 +508,7 @@
                                 </div>
                             </div>
                             <a href="{{route('page.myPost',Auth::user()->id)}}">
-                                <button  type="button" class="btn btn-light">Cancel</button>
+                                <button type="button" class="btn btn-light">Cancel</button>
                             </a>
                             <button type="submit" class="btn btn-gradient-primary mr-2">Update</button>
                         </form>

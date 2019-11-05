@@ -683,17 +683,17 @@
                                 <div class="form-group">
                                     <label class="col-md-2 col-sm-3 col-xs-12 control-label">Giới tính</label>
                                     <div class="col-md-10 col-sm-9 col-xs-12">
-                                        Male: <input
-                                        @if($user->gender=='male')
+                                        Nam: <input
+                                        @if($user->gender=='Nam')
                                             {{'checked'}}
                                             @endif
-                                        type="radio" name="gender" value="male"
+                                        type="radio" name="gender" value="Nam"
                                         >
-                                        Female: <input
-                                            @if($user->gender=='female')
+                                        Nữ: <input
+                                            @if($user->gender=='Nữ')
                                             {{'checked'}}
                                             @endif
-                                            type="radio" name="gender" value="female"
+                                            type="radio" name="gender" value="Nữ"
                                         >
                                     </div>
                                 </div>

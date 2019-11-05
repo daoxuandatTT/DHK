@@ -11,7 +11,7 @@
             <div class="row">
                 <div class="col-lg-12 order-lg-last ftco-animate">
                     <h1 class="mb-3 text-center" style="color: blueviolet">{{ $post->title }}</h1>
-                    <div class="fb-like" data-href="https://blogmonngon.tk/{{$post->id}}" data-width="" data-layout="button_count" data-action="like" data-size="large" data-show-faces="true" data-share="true"></div>up
+                    <div class="fb-like" data-href="https://blogmonngon.tk/{{$post->id}}" data-width="" data-layout="button_count" data-action="like" data-size="large" data-show-faces="true" data-share="true"></div>
                      <p>Tác giả: {{ $post->user->name }}  Created {{ $post->created_at->diffForHumans() }} ({{ $post->created_at}})
                     </p>
                     <h3 class="mb-3 mt-5"></h3>

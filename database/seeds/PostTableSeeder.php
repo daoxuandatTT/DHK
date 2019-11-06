@@ -22,7 +22,7 @@ class PostTableSeeder extends Seeder
         $post->user_id=1;
         $post->category_id=1;
         $post->save();
-
+      
         $post = new Post();
         $post->title = "Dau sot ca chua";
         $post->material = "abc";

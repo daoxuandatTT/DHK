@@ -22,7 +22,7 @@ class SocialController extends Controller
             $user = User::create([
                 'name'          => $userSocial->getName(),
                 'email'         => $userSocial->getEmail(),
-                'image'         => 'default.png',
+                'image'         => 'avatar.jpg',
                 'provider_id'   => $userSocial->getId(),
                 'provider'      => $provider,
             ]);

@@ -156,9 +156,7 @@
                     <img class="img-profile img-circle img-responsive center-block" src="{{asset('storage/upload/images/'.$user->image) }}" alt="">
 
                     <div class="text pt-4">
-                        <p>Hi! My name is <strong>Cathy Deon</strong>, behind the word mountains, far from the countries
-                            Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove
-                            right at the coast of the Semantics, a large language ocean.
+                        <p>Hi! My name is <strong>{{Auth::user()->name}}</strong>, {{Auth::user()->description}}
                         </p>
                     </div>
                 </div>
@@ -294,10 +292,7 @@
                                 <img class="img-profile img-circle img-responsive center-block" src="{{asset('/storage/upload/images/'.$user->image) }}" alt="">
 
                                 <div class="text pt-4">
-                                    <p>Hi! My name is <strong>{{Auth::user()->name}}</strong>, behind the word mountains, far from
-                                        the countries Vokalia and Consonantia, there live the blind texts. Separated
-                                        they live in Bookmarksgrove right at the coast of the Semantics, a large
-                                        language ocean.
+                                    <p>Hi! My name is <strong>{{Auth::user()->name}}</strong>, {{Auth::user()->description}}
                                     </p>
                                 </div>
                             </div>

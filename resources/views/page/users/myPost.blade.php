@@ -254,48 +254,25 @@
                             <div class="row">
                                 <div class=" ftco-animate">
                                     <h3 class="heading mb-4">Recent Blog</h3>
+                                    @foreach($postRecents as $postRecent)
                                     <div class="block-21 mb-4 d-flex">
-                                        <a class="blog-img mr-4"></a>
+                                        <a class="blog-img mr-4" style="background-image: url('{{ asset('storage/upload/images/'.$postRecent->image) }}')"></a>
                                         <div class="text">
-                                            <h3><a href="#">Even the all-powerful Pointing has no control about the blind
-                                                    texts</a>
+                                            <h3><a href="#">{{ $postRecent->title }}</a>
                                             </h3>
                                             <div class="meta">
-                                                <div><a href="#"><span class="icon-calendar"></span> February 12, 2019</a>
+                                                <div><a href="#"><span class="icon-calendar"></span> {{ $postRecent->created_at }}</a>
                                                 </div>
-                                                <div><a href="#"><span class="icon-person"></span> Admin</a></div>
+                                                <div><a href="#"><span class="icon-person"></span> @if(Auth::guard('admin')->check())
+                                                            {{Auth::guard('admin')->user()->name}}
+                                                        @elseif(Auth::guard('web')->check())
+                                                            Hello {{Auth::guard('web')->user()->name}}
+                                                        @endif</a></div>
                                                 <div><a href="#"><span class="icon-chat"></span> 19</a></div>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="block-21 mb-4 d-flex">
-                                        <a class="blog-img mr-4"></a>
-                                        <div class="text">
-                                            <h3><a href="#">Even the all-powerful Pointing has no control about the blind
-                                                    texts</a>
-                                            </h3>
-                                            <div class="meta">
-                                                <div><a href="#"><span class="icon-calendar"></span> February 12, 2019</a>
-                                                </div>
-                                                <div><a href="#"><span class="icon-person"></span> Admin</a></div>
-                                                <div><a href="#"><span class="icon-chat"></span> 19</a></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="block-21 mb-4 d-flex">
-                                        <a class="blog-img mr-4"></a>
-                                        <div class="text">
-                                            <h3><a href="#">Even the all-powerful Pointing has no control about the blind
-                                                    texts</a>
-                                            </h3>
-                                            <div class="meta">
-                                                <div><a href="#"><span class="icon-calendar"></span> February 12, 2019</a>
-                                                </div>
-                                                <div><a href="#"><span class="icon-person"></span> Admin</a></div>
-                                                <div><a href="#"><span class="icon-chat"></span> 19</a></div>
-                                            </div>
-                                        </div>
-                                    </div>
+                                        @endforeach
                                 </div>
                                 {{--Tag CLoud--}}
                                 <div class=" ftco-animate">
@@ -353,31 +330,6 @@
                                     necessitatibus voluptate quod mollitia delectus aut, sunt placeat nam vero culpa
                                     sapiente consectetur similique, inventore eos fugit cupiditate numquam!
                                 </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <section class="ftco-subscribe ftco-section bg-light">
-            <div class="overlay">
-                <div class="container">
-                    <div class="row d-flex justify-content-center">
-                        <div class="col-md-8 text-wrap text-center heading-section ftco-animate">
-                            <h2 class="mb-4"><span>Subcribe to our Newsletter</span></h2>
-                            <p>A small river named Duden flows by their place and supplies it with the necessary
-                                regelialia. It is a paradisematic country, in which roasted parts of sentences fly into
-                                your mouth.
-                            </p>
-                            <div class="row d-flex justify-content-center mt-4 mb-4">
-                                <div class="col-md-8">
-                                    <form action="#" class="subscribe-form">
-                                        <div class="form-group d-flex">
-                                            <input type="text" class="form-control" placeholder="Enter email address">
-                                            <input type="submit" value="Subscribe" class="submit px-3">
-                                        </div>
-                                    </form>
-                                </div>
                             </div>
                         </div>
                     </div>

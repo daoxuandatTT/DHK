@@ -29,9 +29,8 @@ class PageController extends Controller
 
     public function index()
     {
-        $tags = Tag::all()->random(3);
         $randomposts = Post::all()->random(2);
-        return view('page.index',compact('randomposts','tags'));
+        return view('page.index');
     }
 
     public function about()
@@ -51,16 +50,17 @@ class PageController extends Controller
 
     public function myPost()
     {
-        $posts = User::find(Auth::user()->id)->posts->paginate(6);
+        $posts = User::find(Auth::guard('web')->user()->id)->posts->paginate(6);
         $categories = Category::all();
-        $user = User::find(Auth::user()->id);
+        $user = User::find(Auth::guard('web')->user()->id);
         return view('page.users.myPost', compact('posts', 'categories','user'));
     }
     public function showPostShare(){
-        $tag= Tag::where('name','share')->first();
-        $posts=$tag->posts;
-        $postsShare = $posts->paginate(2);
-        return \view('page.share',compact('postsShare'));
+        $tag= Tag::where('name','Chia sẻ')->first();
+        $tags=Tag::all();
+        $categories=Category::all();
+        $postsShare = $tag->posts->paginate(2);
+        return \view('page.share',compact('postsShare','tags','categories'));
     }
 
     public function myProfile($id)

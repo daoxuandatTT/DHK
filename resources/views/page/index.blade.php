@@ -48,12 +48,12 @@
             <div class="row">
                 <div class="col-md-6 order-md-last col-lg-6 ftco-animate">
                     <div class="blog-entry">
-                        <div class="img img-big d-flex align-items-end"
+                        <div class="img img-big d-flex align-items-end hover-image"
                              style="background-image: url({{asset('storage/upload/images/'.$postNewest->image)}});">
                             <div class="overlay"></div>
                             <div class="text">
                                 <span class="subheading"></span>
-                                <h3><a href="data/single.html">{{$postNewest->title}}</a></h3>
+                                <h3><a href="{{ route('page.showDetail',$postNewest->id) }}">{{$postNewest->title}}</a></h3>
                                 <p class="mb-0"><a href="{{route('page.showDetail',$postNewest->id)}}" class="btn-custom">Đọc thêm <span
                                             class="icon-arrow_forward ml-4"></span></a></p>
                             </div>
@@ -65,8 +65,8 @@
                         @foreach($posts as $post)
                             <div class="col-md-6 ftco-animate">
                                 <div class="blog-entry">
-                                    <a href="{{route('page.showDetail',$post->id)}}" class="img d-flex align-items-end"
-                                       style="background-image: url({{asset('storage/upload/images/'.$post->image)}});">
+                                    <a href="" class="img-2"><img style="width: 520px;height: 245px" src="{{asset('storage/upload/images/'.$post->image) }}"
+                                                                  class="img-fluid" alt="Colorlib Template">
                                         <div class="overlay"></div>
                                     </a>
                                     <div class="text pt-3">
@@ -97,7 +97,7 @@
                         @foreach($categories as $category)
                         <div class="col-md-3 ftco-animate">
                             <div class="blog-entry">
-                                <a href="}" class="img-2"><img style="width: 520px;height: 245px" src="{{asset('storage/upload/images/'.$category->image) }}"
+                                <a href="" class="img-2"><img style="width: 520px;height: 245px" src="{{asset('storage/upload/images/'.$category->image) }}"
                                                                               class="img-fluid" alt="Colorlib Template"></a>
                                 <div class="text pt-3">
                                     <p class="meta d-flex"><span class="pr-3">Dessert</span><span
@@ -149,7 +149,7 @@
                             <ul class="category-image">
                                 @foreach($tags as $tag)
                                 <li>
-                                    <a href=""
+                                    <a href="{{route('tag.posts',$tag->id)}}"
                                        class="img d-flex align-items-center justify-content-center text-center">
                                         <div class="text">
                                             <h3>{{$tag->name}}</h3>

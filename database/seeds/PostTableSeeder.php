@@ -19,10 +19,10 @@ class PostTableSeeder extends Seeder
         $post->description = "hhh";
         $post->image = "image11";
         $post->mode = "public";
-        $post->category_id = 1;
-        $post->user_id = 1;
+        $post->user_id=1;
+        $post->category_id=1;
         $post->save();
-
+      
         $post = new Post();
         $post->title = "Dau sot ca chua";
         $post->material = "abc";
@@ -30,8 +30,8 @@ class PostTableSeeder extends Seeder
         $post->description = "hhh";
         $post->image = "image11";
         $post->mode = "public";
-        $post->category_id = 1;
-        $post->user_id = 1;
+        $post->user_id=1;
+        $post->category_id=1;
         $post->save();
 
         $post = new Post();
@@ -41,8 +41,8 @@ class PostTableSeeder extends Seeder
         $post->description = "hhh";
         $post->image = "image11";
         $post->mode = "public";
-        $post->category_id = 1;
-        $post->user_id = 1;
+        $post->user_id=1;
+        $post->category_id=1;
         $post->save();
     }
 }

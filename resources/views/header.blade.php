@@ -40,7 +40,9 @@
 
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="{{route('page.myProfile',Auth::user()->id)}}">Thông tin cá nhân</a>
+                            @if(Auth::user()->provider!=="facebook" && Auth::user()->provider!=='google')
                             <a class="dropdown-item" href="{{route('page.editPassword',Auth::user()->id)}}">Đổi mật khẩu</a>
+                            @endif
                             <a class="dropdown-item" href="{{ route('logout') }}"
                                onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">

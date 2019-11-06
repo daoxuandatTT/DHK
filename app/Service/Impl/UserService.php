@@ -68,6 +68,7 @@ class UserService implements UserServiceInterface
         $user->phone = $request->phone;
         $user->job = $request->job;
         $user->dob = $request->dob;
+        $user->description=$request->description;
         $this->userRepository->save($user);
 
     }

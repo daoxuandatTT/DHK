@@ -751,6 +751,16 @@
                                 </div>
                             </fieldset>
                             <hr>
+                            <fieldset class="fieldset">
+                                <h3 class="fieldset-title">Giới thiệu bản thân</h3>
+                                <div class="form-group">
+                                    <label class="col-md-2  col-sm-3 col-xs-12 control-label">Mô tả</label>
+                                    <div class="col-md-10 col-sm-9 col-xs-12">
+                                        <TEXTAREA type="text" name="description" class="form-control"
+                                                  >{{Auth::user()->description}}</TEXTAREA>
+                                    </div>
+                                </div>
+                            </fieldset>
                             <div class="form-group">
                                 <div class="col-md-10 col-sm-9 col-xs-12 col-md-push-2 col-sm-push-3 col-xs-push-0">
                                     <input class="btn btn-primary" type="submit" value="Cập nhật">

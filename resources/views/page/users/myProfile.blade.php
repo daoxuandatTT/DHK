@@ -523,10 +523,12 @@
                             </ul>
                         </nav>
                     </div>
-                    <div class="content-panel">
+                    <div class="text-center">
                         @if(Session::has('message'))
-                            <h5 class="alert-success">{{Session::get('message')}}</h5>
-                            @endif
+                            <h3 class="success" style="color: green">{{Session::get('message')}}</h3>
+                        @endif
+                    </div>
+                    <div class="content-panel">
                         <form class="form-horizontal">
                             <fieldset class="fieldset">
                                 <h3 class="fieldset-title">Thông tin cá nhân</h3>

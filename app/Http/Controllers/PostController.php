@@ -60,7 +60,7 @@ class PostController extends Controller
         if(Auth::guard('admin')->check()){
             $userId=Auth::guard('admin')->user()->id;
         } else{
-            $userId = Auth::guard('user')->user()->id;
+            $userId = Auth::guard('web')->user()->id;
         }
 
 

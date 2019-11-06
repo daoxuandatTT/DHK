@@ -31,7 +31,11 @@ use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Config;
+use Illuminate\Support\Facades\URL;
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Str;
+
 class AppServiceProvider extends ServiceProvider
 {
     /**
@@ -112,6 +116,19 @@ class AppServiceProvider extends ServiceProvider
             $tags=Tag::all();
             $view->with('tags',$tags);
         });
+        view()->composer('page.users.myPost',function ($view){
+            $postRecents=Post::where('mode','public')->orderBy('created_at','desc')->get();
+            $view->with('postRecents',$postRecents);
+        });
+
+        view()->composer('page.index',function ($view){
+            $randomposts = Post::all()->random(2);
+            $view->with('randomposts',$randomposts);
+        });
+        view()->composer('page.index',function ($view){
+            $tags=Tag::all()->random(3);
+            $view->with('tags',$tags);
+        });
 
         if (!Collection::hasMacro('paginate')) {
 
@@ -123,6 +140,7 @@ class AppServiceProvider extends ServiceProvider
                         ->withPath('');
                 });
         }
+
     }
 }
 

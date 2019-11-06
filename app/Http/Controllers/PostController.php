@@ -23,7 +23,7 @@ class PostController extends Controller
 
     public function getAll()
     {
-        $posts = $this->postService->getAll();
+        $posts = $this->postService->getAll()->paginate(5);
         return view('post.list', compact('posts'));
     }
 
@@ -57,7 +57,13 @@ class PostController extends Controller
 
     public function delete($id)
     {
-        $userId = Auth::user()->id;
+        if(Auth::guard('admin')->check()){
+            $userId=Auth::guard('admin')->user()->id;
+        } else{
+            $userId = Auth::guard('user')->user()->id;
+        }
+
+
         $this->postService->delete($id);
         Session::flash('message', 'Delete successful');
         return redirect()->route('page.myPost', $userId);

@@ -5,12 +5,11 @@
 @section('content')
 
     <div id="fb-root"></div>
-    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v5.0&appId=2474525532872947&autoLogAppEvents=1"></script>
-    <section class="ftco-section">
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v5.0&appId=735608016911729&autoLogAppEvents=1"></script>
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 order-lg-last ftco-animate">
-                    <h1 class="mb-3 text-center" style="color: blueviolet">{{ $post->title }}</h1>
+                    <h3 class="mb-3" style="color: blueviolet">{{ $post->title }}</h3>
                     <div class="fb-like" data-href="https://blogmonngon.tk/{{$post->id}}" data-width="" data-layout="button_count" data-action="like" data-size="large" data-show-faces="true" data-share="true"></div>
                      <p>Tác giả: {{ $post->user->name }}  Created {{ $post->created_at->diffForHumans() }} ({{ $post->created_at}})
                     </p>
@@ -107,30 +106,6 @@
     </section>
     <div class="clearfix"></div>
     <div class="clearfix" ></div>
-    <section class="ftco-subscribe ftco-section bg-light">
-        <div class="overlay">
-            <div class="container">
-                <div class="row d-flex justify-content-center">
-                    <div class="col-md-8 text-wrap text-center heading-section ftco-animate">
-                        <h2 class="mb-4"><span>Subcribe to our Newsletter</span></h2>
-                        <p>A small river titled Duden flows by their place and supplies it with the necessary
-                            regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your
-                            mouth.</p>
-                        <div class="row d-flex justify-content-center mt-4 mb-4">
-                            <div class="col-md-8">
-                                <form action="#" class="subscribe-form">
-                                    <div class="form-group d-flex">
-                                        <input type="text" class="form-control" placeholder="Enter email address">
-                                        <input type="submit" value="Subscribe" class="submit px-3">
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
 @endsection
 @push('js')
